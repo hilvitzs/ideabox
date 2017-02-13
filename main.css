@@ -1,0 +1,13 @@
+body {
+  background-color: magenta;
+}
+
+.delete {
+  height: 25px;
+  width: 25px;
+}
+
+.icon {
+  height: 25px;
+  width: 25px;
+}
