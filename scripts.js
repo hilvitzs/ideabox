@@ -21,13 +21,13 @@ $('.saveBtn').on('click', function() {
   clearFields();
 });
 
-$('.ideaCards').on('click', '.deleteBtn', function() {
-  $(this).parents().remove('.ideaCard');
-});
-
 function clearFields() {
   $('.userTitle').val("")
   $('.userBody').val("");
+
+$('.ideaCards').on('click', '.deleteBtn', function() {
+  $(this).parents().remove('.ideaCard');
+  });
 }
 
 $('.ideaCards').on('click', '.upvote', function() {
