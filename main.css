@@ -83,6 +83,13 @@ p {
 
 .deleteBtn {
   float: right;
+  background: no-repeat url(FEE-ideabox-icon-assets/spritesheet.png) 0 0;
+  background-size: cover;
+}
+
+.deleteBtn:hover {
+  background: no-repeat url(FEE-ideabox-icon-assets/spritesheet.png) 0 -27px;
+  background-size: cover;
 }
 
 .ideaBody {
@@ -98,6 +105,26 @@ p {
 .vote {
   float: left;
   margin-right: 15px;
+}
+
+.upvote {
+  background: no-repeat url(FEE-ideabox-icon-assets/spritesheet.png) 0 -52px;
+  background-size: cover;
+}
+
+.upvote:hover {
+  background: no-repeat url(FEE-ideabox-icon-assets/spritesheet.png) 0 -79px;
+  background-size: cover;
+}
+
+.downvote {
+  background: no-repeat url(FEE-ideabox-icon-assets/spritesheet.png) 0 -106px;
+  background-size: cover;
+}
+
+.downvote:hover {
+  background: no-repeat url(FEE-ideabox-icon-assets/spritesheet.png) 0 -133px;
+  background-size: cover;
 }
 
 .quality {
