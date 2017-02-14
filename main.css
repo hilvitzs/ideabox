@@ -1,13 +1,106 @@
-body {
+/*body {
   background-color: magenta;
+}*/
+
+h1, h2 {
+  color: #6D6E71;
+  font-family: 'Roboto Slab', serif;
+  font-size: 50px;
 }
 
-.delete {
-  height: 25px;
-  width: 25px;
+h2 {
+  font-size: 30px;
+}
+
+p {
+  font-family: 'Open Sans', sans-serif;
+  line-height: 135%;
+}
+
+.idea {
+  color: #00A79D;
+}
+
+.userInputs {
+  background-color: #E5F3F2;
+  display: block;
+  padding: 20px 0px;
+  text-align: center;
+}
+
+.inputs {
+  border: 3px solid #CBCCCE;
+  display: block;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 20px;
+  margin: 15px auto;
+  padding: 5px;
+  width: 50%;
+}
+
+.saveBtn {
+  border: none;
+  background-color: #00A79D;
+  color: #ffffff;
+  width: 52%;
+}
+
+.saveBtn:hover {
+  background-color: #045E55;
+}
+
+.ideaCards {
+  background-color: #ffffff;
+}
+
+.search {
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+
+.ideaCard {
+  border-bottom: 2px solid #D1D3D4;
+  margin: auto;
+  width: 50%;
+}
+
+.cardTop {
+  display: inline-block;
+  margin: 5px auto;
+  width: 100%;
+}
+
+.ideaTitle {
+  color: #6D6E71;
+  float: left;
 }
 
 .icon {
   height: 25px;
   width: 25px;
+}
+
+.delete {
+  float: right;
+  vertical-align: text-bottom;
+}
+
+.ideaBody {
+  color: #939598;
+}
+
+.cardBottom {
+  display: inline-block;
+  margin: 15px auto;
+  width: 100%;
+}
+
+.vote {
+  float: left;
+  margin-right: 15px;
+}
+
+.quality {
+  color: #6D6E71;
+  font-family: 'Roboto Slab', serif;
 }

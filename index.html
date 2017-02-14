@@ -4,26 +4,41 @@
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="reset.css">
     <link rel="stylesheet" type="text/css" href="main.css">
-    <title>Idea Box</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto+Slab:700" rel="stylesheet">
+    <title>IdeaBox</title>
   </head>
+
   <body>
     <section class="userInputs">
-      <h1 class="pageTitleInput"><span>idea</span>box<h1>
-      <input class="userTitle" placeholder="Title">
-      <input class="userBody" placeholder="Body">
-      <button class="saveBtn" type="save">save</button>
+      <h1 class="pageTitleInput">
+        <span class="idea">idea</span>box
+      <h1>
+      <input class="userTitle inputs" placeholder="Title">
+      <input class="userBody inputs" placeholder="Body">
+      <button class="saveBtn inputs" type="save">save</button>
     </section>
+
     <section class="ideaCards">
-      <input class="search" placeholder="Search"></input>
-      <h1 class="ideaTitle">Test</h1>
-      <h2 class="ideaBody">Test</h2>
-      <input class="delete icon" type="image" src="FEE-ideabox-icon-assets/delete.svg">
-      <input class="upvote icon" type="image" src="FEE-ideabox-icon-assets/upvote.svg">
-      <input class="downvote icon" type="image" src="FEE-ideabox-icon-assets/downvote.svg">
-      <p class="quality">quality: swill</p>
+      <input class="search inputs" placeholder="Search"></input>
+        <div class="ideaCard">
+          <div class="cardTop">
+            <h2 class="ideaTitle">Test</h2>
+            <input class="delete icon" type="image" src="FEE-ideabox-icon-assets/delete.svg">
+          </div>
+          <p class="ideaBody">Chocolate croissant candy canes. Muffin bear claw brownie pudding pastry topping sweet roll. Cheesecake chocolate biscuit sweet sesame snaps halvah marzipan jujubes jelly beans. Wafer croissant bonbon cake.</p>
+          <div class="cardBottom">
+            <input class="upvote vote icon" type="image" src="FEE-ideabox-icon-assets/upvote.svg">
+            <input class="downvote vote icon" type="image" src="FEE-ideabox-icon-assets/downvote.svg">
+            <p class="quality">quality:
+              <span class="quality">swill</span>
+            </p>
+          </div>
+        </div>
     </section>
+
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="jquery.min.js"><\/script>')</script>
     <script type="text/javascript" src="scripts.js"></script>
+
   </body>
 </html>
