@@ -7,12 +7,15 @@ $('.saveBtn').on('click', function() {
     `<div class="ideaCard">
         <div class="cardTop" id="${$uniqueId}">
           <h2 class="ideaTitle" contenteditable="true">${$titleInput}</h2>
-          <input class="deleteBtn icon" type="image" src="FEE-ideabox-icon-assets/delete.svg">
+          <div class="deleteBtn icon">
+          </div>
         </div>
         <p class="ideaBody" contenteditable="true">${$bodyInput}</p>
         <div class="cardBottom">
-          <input class="upvote vote icon" type="image" src="FEE-ideabox-icon-assets/upvote.svg">
-          <input class="downvote vote icon" type="image" src="FEE-ideabox-icon-assets/downvote.svg">
+          <div class="upvote vote icon">
+          </div>
+          <div class="downvote vote icon">
+          </div>
           <p class="quality">quality:
             <span class="quality qualityLevel">swill</span>
           </p>
