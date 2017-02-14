@@ -81,9 +81,8 @@ p {
   width: 25px;
 }
 
-.delete {
+.deleteBtn {
   float: right;
-  /*vertical-align: text-bottom;*/
 }
 
 .ideaBody {

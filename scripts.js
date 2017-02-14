@@ -1,3 +1,4 @@
+
 $('.saveBtn').on('click', function() {
   var $titleInput = $('.userTitle').val();
   var $bodyInput = $('.userBody').val();
@@ -6,7 +7,7 @@ $('.saveBtn').on('click', function() {
     `<div class="ideaCard">
         <div class="cardTop">
           <h2 class="ideaTitle">${$titleInput}</h2>
-          <input class="delete icon" type="image" src="FEE-ideabox-icon-assets/delete.svg">
+          <input class="deleteBtn icon" type="image" src="FEE-ideabox-icon-assets/delete.svg">
         </div>
         <p class="ideaBody">${$bodyInput}</p>
         <div class="cardBottom">
@@ -20,7 +21,11 @@ $('.saveBtn').on('click', function() {
   clearFields();
 });
 
+$('.ideaCards').on('click', '.deleteBtn', function() {
+  $(this).parents().remove('.ideaCard');
+});
+
 function clearFields() {
-  $('.userTitle').val() = "";
-  $('.userBody').val() = "";
+  $('.userTitle').val("")
+  $('.userBody').val("");
 }
