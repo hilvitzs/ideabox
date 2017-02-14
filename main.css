@@ -1,6 +1,7 @@
-/*body {
-  background-color: magenta;
-}*/
+html, body {
+  height: 100%;
+  width: 100%;
+}
 
 h1, h2 {
   color: #6D6E71;
@@ -42,7 +43,7 @@ p {
   border: none;
   background-color: #00A79D;
   color: #ffffff;
-  width: 52%;
+  width: 51%;
 }
 
 .saveBtn:hover {
@@ -82,7 +83,7 @@ p {
 
 .delete {
   float: right;
-  vertical-align: text-bottom;
+  /*vertical-align: text-bottom;*/
 }
 
 .ideaBody {
