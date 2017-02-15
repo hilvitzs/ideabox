@@ -72,8 +72,8 @@ $('.ideaCards').on('click', '.deleteBtn', function() {
 }
 
 $('.ideaCards').on('click', '.upvote', function() {
-  var $quality = $(this).siblings('p').text();
   var $id = $(this).parents().siblings('.cardTop').attr('id');
+  var $quality = $(this).siblings('p').text();
   if ($quality === "quality: swill") {
     $(this).siblings('p').text("quality: plausible")
   }
