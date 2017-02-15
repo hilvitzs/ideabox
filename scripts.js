@@ -38,7 +38,7 @@ function parseNewestIdea(id) {
 
 function prependNew(parsedIdea) {
   $('.ideaCards').prepend(
-    `<div class="ideaCard">
+    `<div class="ideaCard" id="${parsedIdea.id}">
         <div class="cardTop" id="${parsedIdea.id}">
           <h2 class="ideaTitle" contenteditable="true">${parsedIdea.title}</h2>
           <div class="deleteBtn icon">
@@ -65,38 +65,45 @@ function clearFields() {
   $('.userBody').val("");
 
 $('.ideaCards').on('click', '.deleteBtn', function() {
-  $(this).parents().remove('.ideaCard');
-  var $id = $(this).parents().attr('id');
+  $(this).parents('.ideaCard').remove('.ideaCard');
+  var $id = $(this).parents('.ideaCard').attr('id');
   localStorage.removeItem($id);
   });
 }
 
 $('.ideaCards').on('click', '.upvote', function() {
-  var $id = $(this).parents().siblings('.cardTop').attr('id');
   var $quality = $(this).siblings('p').text();
   if ($quality === "quality: swill") {
-    $(this).siblings('p').text("quality: plausible")
+    $(this).siblings('p').text("quality: plausible");
+    $quality = "quality: plausible"
+    updateQuality(this, $quality);
   }
   else if ($quality === "quality: plausible") {
     $(this).siblings('p').text("quality: genius")
+    $quality = "quality: genius";
+    updateQuality(this, $quality)
   }
-  else {
-    $(this).siblings('p').text("quality: genius")
-  }
-
 })
 
 $('.ideaCards').on('click', '.downvote', function() {
   var $quality = $(this).siblings('p').text();
   var $id = $(this).parents().siblings('.cardTop').attr('id');
-  console.log($id)
+
   if ($quality === "quality: genius") {
     $(this).siblings('p').text("quality: plausible")
+    $quality = "quality: plausible";
+    updateQuality(this, $quality);
   }
   else if ($quality === "quality: plausible") {
     $(this).siblings('p').text("quality: swill")
-  }
-  else {
-    $(this).siblings('p').text("quality: swill")
+    $quality = "quality: swill"
+    updateQuality(this, $quality);
   }
 })
+
+function updateQuality(location, newQuality) {
+    var $id = $(location).parent().parent('.ideaCard').attr('id');
+    var grabObject = JSON.parse(localStorage.getItem($id));
+    grabObject.quality = newQuality;
+    localStorage.setItem($id, JSON.stringify(grabObject));
+    }
