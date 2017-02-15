@@ -11,6 +11,10 @@ h1, h2 {
 
 h2 {
   font-size: 30px;
+  width: 90%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 p {
@@ -62,6 +66,7 @@ p {
 .ideaCard {
   border-bottom: 2px solid #D1D3D4;
   margin: auto;
+  margin-bottom: 40px;
   width: 50%;
 }
 
