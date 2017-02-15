@@ -57,8 +57,6 @@ function prependNew(parsedIdea) {
 
 $('.saveBtn').on('click', function() {
   grabValues();
-  // console.log(newIdea);
-
   clearFields();
 });
 
@@ -74,7 +72,6 @@ $('.ideaCards').on('click', '.deleteBtn', function() {
 $('.ideaCards').on('click', '.upvote', function() {
   var $quality = $(this).siblings('p').text();
   if ($quality === "quality: swill") {
-    console.log('first option')
     $(this).siblings('p').text("quality: plausible")
   }
   else if ($quality === "quality: plausible") {
@@ -83,6 +80,7 @@ $('.ideaCards').on('click', '.upvote', function() {
   else {
     $(this).siblings('p').text("quality: genius")
   }
+
 })
 
 $('.ideaCards').on('click', '.downvote', function() {

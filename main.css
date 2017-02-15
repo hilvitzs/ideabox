@@ -136,3 +136,21 @@ p {
   color: #6D6E71;
   font-family: 'Roboto Slab', serif;
 }
+
+@media screen and (max-width: 320px) {
+  .inputs {
+    width: 90%;
+  }
+
+  .saveBtn {
+    width: 95%;
+  }
+
+  .ideaCard {
+    width: 90%;
+  }
+
+  .userBody {
+    height: 150px;
+  }
+}
