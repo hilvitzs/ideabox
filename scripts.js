@@ -66,6 +66,8 @@ function clearFields() {
 
 $('.ideaCards').on('click', '.deleteBtn', function() {
   $(this).parents().remove('.ideaCard');
+  var $id = $(this).parents().attr('id');
+  localStorage.removeItem($id);
   });
 }
 
@@ -85,6 +87,8 @@ $('.ideaCards').on('click', '.upvote', function() {
 
 $('.ideaCards').on('click', '.downvote', function() {
   var $quality = $(this).siblings('p').text();
+  var $id = $(this).closest('.ideaCard').attr('id');
+  console.log($id);
   if ($quality === "quality: genius") {
     $(this).siblings('p').text("quality: plausible")
   }
