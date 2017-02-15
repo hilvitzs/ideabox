@@ -73,6 +73,7 @@ $('.ideaCards').on('click', '.deleteBtn', function() {
 
 $('.ideaCards').on('click', '.upvote', function() {
   var $quality = $(this).siblings('p').text();
+  var $id = $(this).parents().siblings('.cardTop').attr('id');
   if ($quality === "quality: swill") {
     $(this).siblings('p').text("quality: plausible")
   }
@@ -87,8 +88,8 @@ $('.ideaCards').on('click', '.upvote', function() {
 
 $('.ideaCards').on('click', '.downvote', function() {
   var $quality = $(this).siblings('p').text();
-  var $id = $(this).closest('.ideaCard').attr('id');
-  console.log($id);
+  var $id = $(this).parents().siblings('.cardTop').attr('id');
+  console.log($id)
   if ($quality === "quality: genius") {
     $(this).siblings('p').text("quality: plausible")
   }
