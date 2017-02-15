@@ -1,26 +1,64 @@
+window.onload = function() {
+  displayOnPageLoad();
+}
 
-$('.saveBtn').on('click', function() {
+function displayOnPageLoad() {
+  var keys = Object.keys(localStorage);
+  for (var i = 0; i < localStorage.length; i++) {
+    var parsedIdea = JSON.parse(localStorage[keys[i]]);
+    prependNew(parsedIdea);
+  }
+}
+
+function NewIdea(id, title, body, quality) {
+  this.id = id;
+  this.title = title;
+  this.body = body;
+  this.quality = "quality: swill" || quality;
+}
+
+function grabValues() {
+  var $uniqueId = event.timeStamp;
   var $titleInput = $('.userTitle').val();
   var $bodyInput = $('.userBody').val();
-  var $uniqueId = event.timeStamp;
+  stringifyIdea($uniqueId, $titleInput, $bodyInput);
+}
+
+function stringifyIdea(id, title, body) {
+  var newIdea = new NewIdea(id, title, body);
+  var stringIdea = JSON.stringify(newIdea);
+  localStorage.setItem(id, stringIdea);
+  parseNewestIdea(id);
+}
+
+function parseNewestIdea(id) {
+  var singleParse = JSON.parse(localStorage.getItem(id));
+  prependNew(singleParse);
+}
+
+function prependNew(parsedIdea) {
   $('.ideaCards').prepend(
     `<div class="ideaCard">
-        <div class="cardTop" id="${$uniqueId}">
-          <h2 class="ideaTitle" contenteditable="true">${$titleInput}</h2>
+        <div class="cardTop" id="${parsedIdea.id}">
+          <h2 class="ideaTitle" contenteditable="true">${parsedIdea.title}</h2>
           <div class="deleteBtn icon">
           </div>
         </div>
-        <p class="ideaBody" contenteditable="true">${$bodyInput}</p>
+        <p class="ideaBody" contenteditable="true">${parsedIdea.body}</p>
         <div class="cardBottom">
           <div class="upvote vote icon">
           </div>
           <div class="downvote vote icon">
           </div>
-          <p class="quality">quality:
-            <span class="quality qualityLevel">swill</span>
-          </p>
+          <p class="qualityLevel">${parsedIdea.quality}</p>
         </div>
       </div>`)
+}
+
+$('.saveBtn').on('click', function() {
+  grabValues();
+  // console.log(newIdea);
+
   clearFields();
 });
 
@@ -34,27 +72,28 @@ $('.ideaCards').on('click', '.deleteBtn', function() {
 }
 
 $('.ideaCards').on('click', '.upvote', function() {
-  var $quality = $('.qualityLevel').html();
-  if ($quality == "swill") {
-    $('.qualityLevel').text("plausible")
+  var $quality = $(this).siblings('p').text();
+  if ($quality === "quality: swill") {
+    console.log('first option')
+    $(this).siblings('p').text("quality: plausible")
   }
-  else if ($quality === "plausible") {
-    $('.qualityLevel').text("genius")
+  else if ($quality === "quality: plausible") {
+    $(this).siblings('p').text("quality: genius")
   }
   else {
-    $('.qualityLevel').text("genius")
+    $(this).siblings('p').text("quality: genius")
   }
 })
 
 $('.ideaCards').on('click', '.downvote', function() {
-  var $quality = $('.qualityLevel').html();
-  if ($quality == "genius") {
-    $('.qualityLevel').text("plausible")
+  var $quality = $(this).siblings('p').text();
+  if ($quality === "quality: genius") {
+    $(this).siblings('p').text("quality: plausible")
   }
-  else if ($quality === "plausible") {
-    $('.qualityLevel').text("swill")
+  else if ($quality === "quality: plausible") {
+    $(this).siblings('p').text("quality: swill")
   }
   else {
-    $('.qualityLevel').text("swill")
+    $(this).siblings('p').text("quality: swill")
   }
 })
