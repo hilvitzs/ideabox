@@ -14,7 +14,7 @@ function NewIdea(id, title, body, quality) {
   this.id = id;
   this.title = title;
   this.body = body;
-  this.quality = "swill" || quality;
+  this.quality = "quality: swill" || quality;
 }
 
 function grabValues() {
@@ -50,9 +50,7 @@ function prependNew(parsedIdea) {
           </div>
           <div class="downvote vote icon">
           </div>
-          <p class="quality">quality:
-            <span class="quality qualityLevel">${parsedIdea.quality}</span>
-          </p>
+          <p class="qualityLevel">${parsedIdea.quality}</p>
         </div>
       </div>`)
 }
@@ -74,27 +72,28 @@ $('.ideaCards').on('click', '.deleteBtn', function() {
 }
 
 $('.ideaCards').on('click', '.upvote', function() {
-  var $quality = $('.qualityLevel').html();
-  if ($quality == "swill") {
-    $('.qualityLevel').text("plausible")
+  var $quality = $(this).siblings('p').text();
+  if ($quality === "quality: swill") {
+    console.log('first option')
+    $(this).siblings('p').text("quality: plausible")
   }
-  else if ($quality === "plausible") {
-    $('.qualityLevel').text("genius")
+  else if ($quality === "quality: plausible") {
+    $(this).siblings('p').text("quality: genius")
   }
   else {
-    $('.qualityLevel').text("genius")
+    $(this).siblings('p').text("quality: genius")
   }
 })
 
 $('.ideaCards').on('click', '.downvote', function() {
-  var $quality = $('.qualityLevel').html();
-  if ($quality == "genius") {
-    $('.qualityLevel').text("plausible")
+  var $quality = $(this).siblings('p').text();
+  if ($quality === "quality: genius") {
+    $(this).siblings('p').text("quality: plausible")
   }
-  else if ($quality === "plausible") {
-    $('.qualityLevel').text("swill")
+  else if ($quality === "quality: plausible") {
+    $(this).siblings('p').text("quality: swill")
   }
   else {
-    $('.qualityLevel').text("swill")
+    $(this).siblings('p').text("quality: swill")
   }
 })
