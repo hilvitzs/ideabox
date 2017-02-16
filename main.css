@@ -50,6 +50,10 @@ p {
   width: 51%;
 }
 
+.saveBtn:disabled {
+  background-color: lightgrey;
+}
+
 .saveBtn:hover {
   background-color: #045E55;
 }
