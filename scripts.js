@@ -5,7 +5,6 @@ window.onload = function() {
     var $id = $(this).parents('.ideaCard').attr('id');
     localStorage.removeItem($id);
     });
-  }
 }
 
 $('.userText').on('keyup', function() {
