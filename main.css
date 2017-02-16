@@ -54,7 +54,7 @@ p {
   background-color: lightgrey;
 }
 
-.saveBtn:hover {
+.saveBtn:hover:enabled {
   background-color: #045E55;
 }
 
