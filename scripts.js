@@ -106,4 +106,16 @@ function updateQuality(location, newQuality) {
     var grabObject = JSON.parse(localStorage.getItem($id));
     grabObject.quality = newQuality;
     localStorage.setItem($id, JSON.stringify(grabObject));
-    }
+}
+
+$('.search').on('keyup', function() {
+  $('.search').submit();
+  var searchValue = $('.search').val().toLowerCase();
+  var ideas = $('section').children('.ideaCard');
+    // console.log(searchValue);
+  ideas.each(function(i, idea) {
+  var ideaText = $(idea).text().toLowerCase();
+  var matched = ideaText.indexOf(searchValue) !== -1;
+  $(idea).toggle(matched);
+  });
+});
