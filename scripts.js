@@ -1,5 +1,11 @@
 window.onload = function() {
   displayOnPageLoad();
+  $('.ideaCards').on('click', '.deleteBtn', function() {
+    $(this).parents('.ideaCard').remove('.ideaCard');
+    var $id = $(this).parents('.ideaCard').attr('id');
+    localStorage.removeItem($id);
+    });
+  }
 }
 
 $('.userText').on('keyup', function() {
@@ -80,6 +86,7 @@ function prependNew(parsedIdea) {
 $('.saveBtn').on('click', function() {
   grabValues();
   clearFields();
+  $('.saveBtn').prop('disabled', true);
 });
 
 function clearFields() {
