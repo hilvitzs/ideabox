@@ -1,6 +1,22 @@
 window.onload = function() {
   displayOnPageLoad();
+  $('.ideaCards').on('click', '.deleteBtn', function() {
+    $(this).parents('.ideaCard').remove('.ideaCard');
+    var $id = $(this).parents('.ideaCard').attr('id');
+    localStorage.removeItem($id);
+    });
+  }
 }
+
+$('.userText').on('keyup', function() {
+  var userTitle = $('.userTitle').val();
+  var userBody = $('.userBody').val();
+  if (userTitle === "" || userBody === "") {
+    $('.saveBtn').prop("disabled", true);
+  } else {
+    $('.saveBtn').prop("disabled", false);
+  }
+});
 
 $('.search').on('keyup', function() {
   $('.search').submit();
@@ -70,6 +86,7 @@ function prependNew(parsedIdea) {
 $('.saveBtn').on('click', function() {
   grabValues();
   clearFields();
+  $('.saveBtn').prop('disabled', true);
 });
 
 function clearFields() {
@@ -118,4 +135,59 @@ function updateQuality(location, newQuality) {
     var grabObject = JSON.parse(localStorage.getItem($id));
     grabObject.quality = newQuality;
     localStorage.setItem($id, JSON.stringify(grabObject));
+}
+
+$('.ideaCards').on('focus', '.ideaTitle', function() {
+  $(this).on('keydown', function(event) {
+    if(event.keyCode === 13) {
+      event.preventDefault();
+      $(this).blur();
+      return false;
+    }
+  })
+})
+
+$('.ideaCards').on('focus', '.ideaBody', function() {
+  $(this).on('keydown', function(event) {
+    if(event.keyCode === 13) {
+      event.preventDefault();
+      $(this).blur();
+      return false;
+    }
+  })
+})
+
+$('.ideaCards').on('blur', '.ideaTitle', function() {
+  var $id = $(this).parent().attr('id');
+  var grabObject = JSON.parse(localStorage.getItem($id));
+  var newTitle = $(this).closest('.ideaTitle').text();
+  var newBody = $(this).text();
+  grabObject.title = newTitle;
+  grabObject.body = newBody;
+  localStorage.setItem($id, JSON.stringify(grabObject));
+});
+
+$('.ideaCards').on('blur', '.ideaBody', function() {
+  var $id = $(this).siblings('.cardTop').attr('id');
+  console.log($id);
+  var grabObject = JSON.parse(localStorage.getItem($id));
+  var newBody = $(this).text();
+  grabObject.body = newBody;
+  localStorage.setItem($id, JSON.stringify(grabObject));
+});
+
+function updateTitle(location, newTitle) {
+  var $id =
+  $(location).parent().parent('.ideaCard').attr('id');
+  var grabObject = JSON.parse(localStorage.getItem($id));
+  grabObject.title = newTitle;
+  localStorage.setItem($id, JSON.stringify(grabObject));
+}
+
+function updateBody(location, newBody) {
+  var $id =
+  $$(location).parent().parent('.ideaCard').attr('id');
+  var grabObject = JSON.parse(localStorage.getItem($id));
+  grabObject.quality = newBody;
+  localStorage.setItem($id, JSON.stringify(grabObject));
 }
