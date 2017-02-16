@@ -7,15 +7,6 @@ window.onload = function() {
     });
 }
 
-$('.userText').on('keyup', function() {
-  var userTitle = $('.userTitle').val();
-  var userBody = $('.userBody').val();
-  if (userTitle === "" || userBody === "") {
-    $('.saveBtn').prop("disabled", true);
-  } else {
-    $('.saveBtn').prop("disabled", false);
-  }
-});
 
 $('.search').on('keyup', function() {
   $('.search').submit();
@@ -190,3 +181,13 @@ function updateBody(location, newBody) {
   grabObject.quality = newBody;
   localStorage.setItem($id, JSON.stringify(grabObject));
 }
+
+$('.userText').on('keyup', function() {
+  var userTitle = $('.userTitle').val();
+  var userBody = $('.userBody').val();
+  if (userTitle === "" || userBody === "") {
+    $('.saveBtn').prop("disabled", true);
+  } else {
+    $('.saveBtn').prop("disabled", false);
+  }
+});

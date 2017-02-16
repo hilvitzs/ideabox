@@ -50,13 +50,14 @@ p {
   width: 51%;
 }
 
+.saveBtn:hover {
+  background-color: #045E55;
+}
+
 .saveBtn:disabled {
   background-color: lightgrey;
 }
 
-.saveBtn:hover {
-  background-color: #045E55;
-}
 
 .ideaCards {
   background-color: #ffffff;
